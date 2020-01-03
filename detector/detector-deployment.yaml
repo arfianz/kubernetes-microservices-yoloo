@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: detector-svc-deployment
+spec:
+  replicas: 3
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: detector-svc
+    spec:
+      containers:
+        - image: 127.0.0.1:30400/detector-svc
+          imagePullPolicy: Always
+          name: detector-svc
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: detector-svc-secrets
+  selector:
+    matchLabels:
+      app: detector-svc
