@@ -644,11 +644,19 @@ $ minikube service viewer-service
 🎉  Opening service default/viewer-service in default browser...
 ```
 
-This will popup browser, the upload some image file.
+This will popup browser, then upload some image file.
 
 The result will be like this:
 
 ![result](./result.png?raw=true)
+
+The application will detect and count the number of classes.
+
+Another example:
+
+![result2](./result2.png?raw=true)
+
+... Enjoy the deployments ...
 
 ## LICENSE
 
