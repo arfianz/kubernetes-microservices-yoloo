@@ -182,7 +182,7 @@ $ minikube dashboard url
 🎉  Opening http://127.0.0.1:34457/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
 ```
 
-![dash-kube](./kube-dash.png?raw=true)
+![dash-kube](./kube-dashboard.png?raw=true)
 
 ### Setup Private Registry
 
