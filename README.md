@@ -285,7 +285,7 @@ In this tutorial, we’ll be deploying a simple microservices app called Yoloo. 
 Fist, we download the YOLO weights in the detector directory.
 
 ```bash
-$ cd detector
+$ cd ./detector
 $ wget https://pjreddie.com/media/files/yolov3.weights
 --2020-01-02 17:35:03--  https://pjreddie.com/media/files/yolov3.weights
 Resolving pjreddie.com (pjreddie.com)... 128.208.4.108
