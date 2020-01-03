@@ -18,7 +18,7 @@ Below are some common terms associated with Kubernetes.
 - **Deployment**: A deployment is used to manage a pod or set of pods. Pods are typically not created or managed directly. Deployments can automatically spin up any number of pods. If a pod dies, a deployment can automatically recreate it as well.
 - **Service**: Pods are mortal. Consumers should however not be burdened with figuring out what pods are available and how to access them. Services keep track of all available pods of a certain type and provide a way to access them.
 
-This repo contains the source code for my tutorial on [deploying microservices on Kubernetes](http://alphacoder.xyz/deploy-microservices-on-kubernetes). It houses two microservices: _detector_ and _viewer_. The detector service is a Python/Flask app that uses a pre-trained [YOLO](https://www.youtube.com/watch?v=Cgxsv1riJhI) v3 model to detect [common objects](detector/classes.txt) like laptops and chairs in an image. It returns a link to an output image of object predictions and a list of the detected objects. The viewer service is a PHP app which provides a front-end for uploading new images and viewing the images processed by the detector service.
+This repo contains the source code for my tutorial. It houses two microservices: _detector_ and _viewer_. The detector service is a Python/Flask app that uses a pre-trained [YOLO](https://www.youtube.com/watch?v=Cgxsv1riJhI) v3 model to detect [common objects](detector/classes.txt) like laptops and chairs in an image. It returns a link to an output image of object predictions and a list of the detected objects. The viewer service is a PHP app which provides a front-end for uploading new images and viewing the images processed by the detector service.
 
 ## Install PHP and Composer
 
@@ -581,7 +581,7 @@ $ kubectl get secret viewer-svc-secrets -o json | jq '.data | map_values(@base64
 }
 ```
 
-## Deployment Applications
+### Deployment Applications
 
 The detector and viewer services contain deployment files, detector-deployment.yaml and viewer-deployment.yaml respectively, which tell k8s what workloads we want to run.
 
@@ -626,6 +626,9 @@ registry           NodePort       10.96.9.104     <none>        5000:30400/TCP  
 registry-ui        NodePort       10.96.240.240   <none>        8080:30319/TCP   12h
 viewer-service     LoadBalancer   10.96.177.184   <pending>     80:30610/TCP     14m
 ```
+
+**Note**: On cloud providers that support load balancers, an external IP address would be provisioned to access the Service. On Minikube, the LoadBalancer type makes the Service accessible through the minikube service command.
+
 
 ## Result
 
